@@ -278,6 +278,13 @@
                linear-gradient(-45deg,transparent 45%,#c44a4a 45%,#c44a4a 55%,transparent 55%);
   }
   .limits-note{margin:16px 0 0;font-size:13px;color:var(--ink-soft);font-style:italic}
+  .limits-subhead{
+    margin:18px 0 12px;font-size:14px;color:var(--ink);font-weight:600;
+    text-transform:uppercase;letter-spacing:.6px;
+  }
+  body.nypd-mode .limits-subhead{color:#fff}
+  .limits-grid div em{font-style:italic;color:var(--ink-soft);font-weight:400}
+  body.nypd-mode .limits-grid div em{color:#9fb0c9}
 
   /* CTA */
   .cta{
@@ -724,24 +731,26 @@ Notes:
     </article>
   </div>
 
-  <!-- Honest Limits -->
+  <!-- Limits -->
   <section class="limits" id="limits">
     <div class="limits-head">
-      <span class="limits-badge">Honest limits</span>
-      <h3>What Copilot Chat will <em>not</em> do with the license alone</h3>
+      <h3>What Copilot Chat will <em>not</em> do with the Basic license</h3>
     </div>
-    <p class="limits-intro">With the Copilot Chat license only &mdash; no add-ons &mdash; Copilot Chat is a general-purpose reasoning and writing assistant protected by Enterprise Data Protection. It is <strong>not</strong> grounded in your systems.</p>
+    <p class="limits-intro">With the Copilot Chat Basic license only &mdash; no add-ons &mdash; the boundaries below describe where Copilot Chat stops on its own and where supervisory or Legal Bureau review takes over.</p>
+    <p class="limits-intro">Copilot Chat is a general-purpose reasoning and writing assistant protected by Enterprise Data Protection. It is <strong>not</strong> grounded in your systems, and this prompt set is intentionally scoped to <strong>internal-first artifacts that go through normal review</strong> before anything external happens.</p>
+    <h4 class="limits-subhead">What Copilot Chat will not do with the license alone</h4>
     <div class="limits-grid">
       <div>Won't read an officer's Outlook mailbox or calendar</div>
       <div>Won't read Teams chats, channels, or meeting transcripts</div>
       <div>Won't search or summarize SharePoint or OneDrive files automatically</div>
       <div>Won't connect to CAD, RMS, DAS, eSummons, or any case-management system</div>
-      <div>Won't retrieve real-time crime data, CompStat numbers, or arrest records</div>
-      <div>Won't give legal advice or determine probable cause</div>
-      <div>Won't replace a supervisor's review of any report before it's filed</div>
-      <div>Won't retain your prompts to train foundation models (EDP protection)</div>
+      <div>Won't retrieve real-time crime data, CompStat numbers, or arrest records <em>(public web data still accessible)</em></div>
+      <div>Won't draft public-facing communications involving named complainants, victims, or subjects <em>(not a system constraint, governance/policy decision)</em></div>
+      <div>Won't produce arrest reports, complaint reports, or use-of-force statements <em>(not a system constraint, model can generate this content)</em></div>
+      <div>Won't perform probable cause determinations or disciplinary documentation <em>(not a system constraint, advisory limitation)</em></div>
+      <div>Won't replace supervisory or Legal Bureau review of any report before it's filed or sent <em>(not a system constraint, human oversight requirement)</em></div>
+      <div>Won't retain your prompts to train foundation models <em>(EDP protection)</em></div>
     </div>
-    
   </section>
 
   <!-- CTA -->
@@ -797,18 +806,10 @@ Notes:
     showToast._t = setTimeout(()=>toast.classList.remove('show'), 1600);
   }
 
-  // Background video toggle
+  // Background video toggle (single handler — pauses the actual video element, not just the class)
   const bgToggle = document.getElementById('bgToggle');
   const bgDot = document.getElementById('bgDot');
   const bgLabel = document.getElementById('bgLabel');
-  if(bgToggle){
-    bgToggle.addEventListener('click',()=>{
-      document.body.classList.toggle('bg-off');
-      const off = document.body.classList.contains('bg-off');
-      bgToggle.classList.toggle('off', off);
-      bgLabel.textContent = off ? 'Resume video' : 'Pause video';
-    });
-  }
 
   // NYPD Tune — autoplay on load, loop continuously
   const dunBtn = document.getElementById('dunBtn');
