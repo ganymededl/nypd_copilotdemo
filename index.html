@@ -311,16 +311,13 @@
      Expected filename: NYPDOfflineHTML_AudioBG.mp4 -->
      If the file is missing, the gradient shows and the page still works normally. -->
 <div class="bg-stage" aria-hidden="true">
-  <video
-    id="bgVideo"
-    autoplay muted loop playsinline preload="auto"
-    tabindex="-1">
+<video id="bgVideo" autoplay muted loop playsinline preload="auto" crossorigin="anonymous" tabindex="-1">
     <source src="https://nypddemostorage.blob.core.windows.net/media/NYPDOfflineHTML_AudioBG.mp4?sp=r&st=2026-05-08T06:30:13Z&se=2026-05-14T14:53:13Z&skoid=4598dbf5-2369-4cac-af84-ba44a8eed5ed&sktid=83d06137-87cd-4597-ae4d-cb4b3ccfe3aa&skt=2026-05-08T06:30:13Z&ske=2026-05-14T14:53:13Z&sks=b&skv=2025-11-05&spr=https&sv=2025-11-05&sr=b&sig=G5LCgx8%2BEvbHSjbe%2FGdx4j3OYCfPgbQ0a%2BTgaMfy9LU%3D" type="video/mp4">
   </video>
 </div>
 <!-- Law & Order theme. Offline: place law-order-theme.mp3 next to this file. Online: streams from myinstants. -->
 <audio id="dunSound" loop preload="auto">
-  <source src="https://www.myinstants.com/media/sounds/law-and-order-theme.mp3" type="audio/mpeg">
+  <source src="https://www.myinstants.com/en/instant/law-order-theme-14581/?utm_source=copy&utm_medium=share" type="audio/mpeg">
 </audio>
 
 <div class="bg-tint" aria-hidden="true"></div>
@@ -831,14 +828,7 @@ Notes:
   // Play immediately — script is at bottom of body so DOM is ready.
   // On file:// this works in Chrome/Edge without user interaction.
   // If browser blocks unmuted play, fall back to muted so it still loops.
-  if(dunSound){
-    dunSound.play().catch(()=>{
-      dunSound.muted = true;
-      audioDot.classList.add('off');
-      audioLabel.textContent = 'Unmute';
-      dunSound.play().catch(()=>{});
-    });
-  }
+
 
   // NYPD Tune button — restart from top, unmute
   if(dunBtn && dunSound){
