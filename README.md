@@ -1,4 +1,5 @@
-https://witty-moss-065485610.7.azurestaticapps.net/
+New: https://ganymededl.github.io/nypd_copilotdemo/
+Old: https://witty-moss-065485610.7.azurestaticapps.net/
 
 NYPD Copilot Demo
 An interactive demo site that shows how Microsoft Copilot Chat can support realistic NYPD workflows using role-based prompt examples. The app is a single-page HTML experience designed for live demos, internal presentations, and stakeholder conversations around Copilot Chat in GCC environments.
